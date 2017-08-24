@@ -3,7 +3,18 @@
   "version": "0.0.0",
   "dependencies": {
     "modernizr": "~2.8.3",
-    "normalize-css": "~3.0.2"
-  }
+    "normalize-css": "~3.0.2",
+    "animejs": "^2.0.2"
+  },
+  "homepage": "https://github.com/guiluchesi/estudo-de-triangulos",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
-
