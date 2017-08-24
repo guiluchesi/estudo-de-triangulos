@@ -1,10 +1,43 @@
+verde = #9bd93e
+pink = #f60081
+azul = #007fe3
+cinza = #dadbdd
+cinzaEscuro = #cecfd3
+roxo = #a2007b
+laranja = #ff8500
+
 body
   margin 0
   padding 0
 
-.shadow
-  filter url(#blur-filter)
-  fill rgba(0, 0, 0, 0.3)
+.super-logo-princi
+  display flex
+  justify-content center
+  transform translateY(-80px)
+  svg
+    transform perspective(70em) rotateX(50deg) translateX(40px) scaleX(0.75)
+    transform-origin bottom
+    transition transform 1.5s
+    &.up
+      transform perspective(70em) rotateX(0) translateX(40px) scaleX(0.75)
 
-.triangle
-  fill #9bd93e
+    .laranja
+      fill laranja
+
+    .azul
+      fill azul
+
+    .verde
+      fill verde
+
+    .pink
+      fill pink
+
+    .cinza
+      fill cinza
+
+    .cinzaEscuro
+      fill cinzaEscuro
+
+    .roxo
+      fill roxo
