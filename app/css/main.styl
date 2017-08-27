@@ -13,14 +13,21 @@ body
 .super-logo-princi
   display flex
   justify-content center
-  transform translateY(-80px)
+
   svg
     transform-origin bottom
     transition transform 1.5s
     overflow visible
+    .tresD
+      transform: scaleY(1);
+      transform-origin: top;
+      transition: transform 1.5s;
 
     &.angle
-      transform perspective(70em) rotateX(50deg) translateX(40px) scaleX(0.75)
+      /*transform perspective(70em) rotateX(50deg) translateX(40px) scaleX(0.75)*/
+      transform perspective(70em) rotateX(-20deg) translateY(10px)
+      .tresD
+        transform: scaleY(0);
 
     &.up
       transform perspective(70em) rotateX(0) translateX(40px) scaleX(0.75)
