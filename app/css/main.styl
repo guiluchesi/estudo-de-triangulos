@@ -6,14 +6,152 @@ cinzaEscuro = #cecfd3
 roxo = #a2007b
 laranja = #ff8500
 
+largura = 140
+altura = 110
+profundidade = 60
+hipotenusa = math(((altura/2) ** 2 + largura ** 2), 'sqrt')
+
+larguraTriangulo = unit(largura, 'px')
+alturaTriangulo = unit(altura, 'px')
+metadeTriangulo = unit(altura/2, 'px')
+profundidadeTriangulo = unit(profundidade, 'px')
+hipotenusaTriangulo = unit(hipotenusa, 'px')
+
+gerarTriangulo(cor)
+  width 0
+  height 0
+  border-style solid
+  border-width metadeTriangulo 0 metadeTriangulo larguraTriangulo
+  border-color transparent transparent transparent cor
+
+
 body
   margin 0
   padding 0
 
+.triangulo
+  transform-style preserve-3d
+  position absolute
+  width larguraTriangulo
+  height alturaTriangulo
+  &.um
+    transform rotateZ(180deg)
+    &.col2
+      transform translateX(140px)
+
+  &.dois
+    transform translateY(55px)
+    &.col2
+      transform translateY(55px) rotateZ(180deg) translateX(-140px)
+    &.col3
+      transform translateY(55px) translateX(280px)
+
+  &.tres
+    transform translateY(110px) rotateZ(180deg)
+    &.col3
+      transform translateY(110px) rotateZ(180deg) translateX(-280px)
+  &.quatro
+    transform translateY(165px)
+    &.col2
+      transform translateY(165px) rotateZ(180deg) translateX(-140px)
+    &.col3
+      transform translateY(165px) translateX(280px)
+
+  &.cinco
+    transform translateY(220px) rotateZ(180deg)
+  &.seis
+    transform translateY(275px)
+
+  &.cinzaEscuro
+    .base, .topo
+      gerarTriangulo(cinzaEscuro)
+    .lateral
+      background-color darken(cinzaEscuro, 5%)
+    .fundo
+      background-color lighten(cinzaEscuro, 10%)
+
+  &.verde
+    .base, .topo
+      gerarTriangulo(verde)
+    .lateral
+      background-color darken(verde, 5%)
+    .fundo
+      background-color lighten(verde, 10%)
+
+  &.pink
+    .base, .topo
+      gerarTriangulo(pink)
+    .lateral
+      background-color darken(pink, 5%)
+    .fundo
+      background-color lighten(pink, 10%)
+
+  &.laranja
+    .base, .topo
+      gerarTriangulo(laranja)
+    .lateral
+      background-color darken(laranja, 5%)
+    .fundo
+      background-color lighten(laranja, 10%)
+
+  &.cinza
+    .base, .topo
+      gerarTriangulo(cinza)
+    .lateral
+      background-color darken(cinza, 5%)
+    .fundo
+      background-color lighten(cinza, 10%)
+
+  &.roxo
+    .base, .topo
+      gerarTriangulo(roxo)
+    .lateral
+      background-color darken(roxo, 5%)
+    .fundo
+      background-color lighten(roxo, 10%)
+
+  &.azul
+    .base, .topo
+      gerarTriangulo(azul)
+    .lateral
+      background-color darken(azul, 5%)
+    .fundo
+      background-color lighten(azul, 10%)
+
+
+  .base, .topo, .lateral, .fundo
+    position absolute
+
+  .topo
+    transform translateZ(60px)
+
+  .lateral
+    width hipotenusaTriangulo
+    height profundidadeTriangulo
+    &.esquerda
+      transform-origin bottom left
+      transform rotateZ(21.5deg) rotateX(90deg) translateX(-22px) translateZ(55px) translateY(60px)
+    &.direita
+      transform-origin top left
+      transform rotateZ(-21.5deg) rotateX(90deg) translateX(-40px) translateZ(-102px)
+
+  .fundo
+    width profundidadeTriangulo
+    height alturaTriangulo
+    background-color darken(laranja, 5%)
+    position absolute
+    transform translateX(-30px) translateZ(30px) rotateY(90deg)
 
 .super-logo-princi
   display flex
   justify-content center
+  perspective 150em
+  transform rotateX(50deg) translateY(150px) translateX(-80px)
+  transform-style preserve-3d
+  transform-origin top
+  transition transform 3s ease
+  &.up
+    transform rotateX(0) translateY(50px) translateX(-80px)
 
   svg
     transform-origin bottom
